@@ -1,0 +1,136 @@
+*{
+    margin: 0px;
+}
+
+section{
+    min-height: 100vh;
+    max-width: 100%;
+    background-color: rgb(36, 36, 36);
+    margin: 0px;
+    position: relative;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+.container{
+    height: 100vh;
+    width: 80%;
+}
+
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    grid-template-areas: 
+    "heading",
+    "main",
+    "search";
+}
+
+.heading{
+    grid-area: "heading";
+    padding: 15px 0px;
+}
+
+main{
+    grid-area: 'main';
+}
+
+.search{
+    grid-area: 'search';
+    padding: 20px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search input{
+    width: 100%;
+    height: 60px;
+    border-radius: 10px;
+    padding: 0px 20px;
+    font-size: clamp(16px, 1.2vw,20px);
+    border: 0px;
+    background-color: rgb(246, 246, 246);
+}
+
+.heading h2{
+    padding: 5px 60px;
+    font-size: clamp(25px,3vw,50px );
+    color: rgb(236, 236, 236);
+}
+
+main {
+    padding:0px 60px;
+    overflow: hidden;
+    overflow-y: scroll;
+    
+}
+
+.question{
+    margin: 10px 0px;
+    color: white;
+    border: 1px solid white;
+    display: none;
+}
+.question{
+    min-height: auto;
+    padding: 20px;
+    grid-area: "answer";
+    border-radius: 10px;
+    font-size: clamp(16px,1.2em,20px);
+}
+.answer{
+    min-height: auto;
+    background-color: rgb(96, 96, 96);
+    padding: 20px;
+    grid-area: "answer";
+    color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    font-size: clamp(16px,1.2em,20px);
+}
+
+button{
+    padding: 15px;
+    margin: 5px;
+    border-radius: 10px;
+    font-size: clamp(20px, 1.5vw,25px);
+    font-weight: 600;
+    border: 0px;
+}
+
+
+@media screen and (max-width:1000px){
+    .container{
+        width: 100%;
+    }
+
+    .heading{
+        position: sticky;
+    }
+    main{
+        padding: 0px 30px;
+    }
+
+    .heading h2{
+        padding: 0px;
+    }
+    .heading,.search{
+        padding: 25px 30px;
+    }
+    button{
+        padding: 18px 5px;
+        margin: 5px;
+    }
+}
