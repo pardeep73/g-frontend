@@ -23,7 +23,7 @@ export default function Index() {
 
             console.log(data);
 
-            axios.post("http://localhost:8000/api/chatbot", data,/* {
+            axios.post("https://backend-t9x8.onrender.com/api/chatbot", data,/* {
                 responseType:"stream"
             } */)
                 .then((res) => {
