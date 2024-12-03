@@ -2,6 +2,10 @@
     margin: 0px;
 }
 
+.answer::-webkit-scrollbar{
+    display: none;
+}
+
 section{
     min-height: 100vh;
     max-width: 100%;
@@ -99,6 +103,7 @@ main {
     border: 1px solid white;
     border-radius: 10px;
     font-size: clamp(16px,1.2em,20px);
+    overflow-x: scroll;
 }
 
 button{
