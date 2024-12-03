@@ -23,7 +23,7 @@ export default function Index() {
         setChatbot("");
     
         try {
-            const response = await fetch("http://localhost:8000/api/chatbot", {
+            const response = await fetch("https://backend-t9x8.onrender.com/api/chatbot", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
