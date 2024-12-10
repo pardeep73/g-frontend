@@ -18,7 +18,7 @@ const Login = () => {
         password
     }
 
-    const handle = async(event) =>{
+    /* const handle = async(event) =>{
         event.preventDefault();
 
         try {
@@ -48,8 +48,42 @@ const Login = () => {
         } catch (error) {
             console.log("Problem in Register try block",error)
         }
-    }
+    } */
    /*  console.log(' data from login',api) */
+   const handle = async (event) => {
+    event.preventDefault();
+
+    try {
+        if (!email || !password) {
+            alert('Please Fill the All Fields');
+            return;
+        }
+
+        const response = await fetch(`${burl}/api/user/login`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            credentials: 'include', // Important for cookies
+            body: JSON.stringify(data),
+        });
+
+        const resData = await response.json();
+
+        console.log("Register Response data", resData);
+
+        setapi(resData);
+        alert(resData.message);
+
+        if (resData.success === true) {
+            setTimeout(() => {
+                navigate('/home');
+            }, 2000);
+        }
+    } catch (error) {
+        console.log("Problem in Register try block", error);
+    }
+};
 
 
     return (
