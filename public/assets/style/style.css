@@ -393,6 +393,11 @@ header,.logout{
     padding: 20px;
     height: 60px;
 }
+.contain button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 .buttons a,.logout a{
     font-size: clamp(18px,1.2vw,25px);
