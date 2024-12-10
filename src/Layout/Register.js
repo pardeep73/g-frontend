@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { SpinnerRoundFilled } from "spinners-react";
 import { Apidata, burl } from './Apihandler/Apihandler'
 
 
@@ -10,7 +11,7 @@ const Register = () => {
     const [username, setusername] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
-
+     const [loading, setloading] = useState()
     const[api,setapi]=useState('')
 
 
@@ -21,6 +22,7 @@ const Register = () => {
     }
 
     const handleRegister = async(event) =>{
+         setloading(true)
         event.preventDefault();
 
         try {
@@ -45,7 +47,9 @@ const Register = () => {
             })
         } catch (error) {
             console.log("Problem in Register try block",error)
-        }
+        }finally{
+        setloading(false)
+    }
     }
 
 
@@ -74,7 +78,7 @@ const Register = () => {
                         <div className="acc">
                             <Link to={'/login'}>Already have an account?</Link>
                         </div>
-                        <button onClick={handleRegister}>Create account</button>
+                        <button onClick={handleRegister}>Create account{loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
                     </div>
                 </form>
             </div>
