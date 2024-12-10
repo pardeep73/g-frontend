@@ -122,7 +122,7 @@ export default function Index({ setend }) {
 
     const logout = async () => {
         try {
-            const response = await fetch(`${burl}/user/logout`, {
+            const response = await fetch(`${burl}/api/user/logout`, {
                 method: 'POST',
                 credentials: 'include', // Ensures cookies are sent
                 headers: {
