@@ -3,7 +3,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Apidata, burl } from './Apihandler/Apihandler';
-import { SpinnerInfinity } from 'spinners-react'
+import { SpinnerRoundFilled } from "spinners-react";
 const Login = () => {
 
 
