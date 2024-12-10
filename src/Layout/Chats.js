@@ -22,6 +22,8 @@ const Chats = ({chatend,setid}) => {
         const data = await response.json();
         console.log('Index Response', data);
         setdata(data.chats); // Update state with the chats data
+
+        
     } catch (error) {
         console.log('Error while fetching in the index', error);
     }
@@ -40,7 +42,7 @@ useEffect(() => {
    <>
    <nav id='nav'>
       
-      {data.map((element) => {
+      {data?.map((element) => {
         return(
           <div className='box' key={element._id} onClick={()=>{
             chatend.chatend.setid(element._id);
@@ -53,7 +55,7 @@ useEffect(() => {
             </div>
         )
             
-})}
+}) || 'No chats'}
        
    </nav>
    </>
