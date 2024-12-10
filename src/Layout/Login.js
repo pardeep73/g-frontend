@@ -112,7 +112,7 @@ const Login = () => {
                         <div className="acc">
                             <Link to={'/'}>Create a new account?</Link>
                         </div>
-                        <button onClick={handle}>Login{loading && <SpinnerInfinity size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(255,255,255)"} />}</button>
+                        <button onClick={handle}>Login{loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
                     </div>
                 </form>
             </div>
