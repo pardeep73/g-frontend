@@ -27,7 +27,7 @@ const Login = () => {
                 alert('Please Fill the All Fields');
             }
 
-            await axios.post(`${burl}/user/login`,data,
+            await axios.post(`${burl}/api/user/login`,data,
                 {
                     withCredentials: true,
                 }

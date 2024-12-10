@@ -18,7 +18,7 @@ export default function Index({ setend }) {
     let [data, setdata] = useState("");
     const dataFetch = async () => {
         try {
-            const response = await fetch(`${burl}/bot/chats`, {
+            const response = await fetch(`${burl}/api/bot/chats`, {
                 method: 'POST',
                 credentials: 'include', // Ensures cookies are sent
                 headers: {
@@ -62,7 +62,7 @@ export default function Index({ setend }) {
         setChatbot("");
 
         try {
-            const response = await fetch(`${burl}/bot/chatbot`, {
+            const response = await fetch(`${burl}/api/bot/chatbot`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(querydata),

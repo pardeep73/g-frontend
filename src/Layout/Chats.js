@@ -6,7 +6,7 @@ const Chats = ({chatend,setid}) => {
   const [data,setdata] = useState([]);
   const dataFetch = async () => {
     try {
-        const response = await fetch(`${burl}/bot/chats`, {
+        const response = await fetch(`${burl}/api/bot/chats`, {
             method: 'POST',
             credentials: 'include', // Ensures cookies are sent
             headers: {

@@ -29,7 +29,7 @@ const Register = () => {
                 alert('Please Fill the All Fields');
             }
 
-            await axios.post(`${burl}/user/register`,data)
+            await axios.post(`${burl}/api/user/register`,data)
             .then((res)=>{
                 console.log("Register Response data",res.data)
                 setapi(res.data)
