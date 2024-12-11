@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { SpinnerRoundFilled } from "spinners-react";
 import { Apidata, burl } from './Apihandler/Apihandler'
 import { showhide } from '../javascript/navcontent'
 
@@ -12,13 +11,8 @@ const Register = () => {
     const [username, setusername] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
-<<<<<<< HEAD
 
     const [api, setapi] = useState('')
-=======
-     const [loading, setloading] = useState()
-    const[api,setapi]=useState('')
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
 
 
     const data = {
@@ -27,12 +21,7 @@ const Register = () => {
         password
     }
 
-<<<<<<< HEAD
     const handleRegister = async (event) => {
-=======
-    const handleRegister = async(event) =>{
-         setloading(true)
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
         event.preventDefault();
 
         try {
@@ -56,18 +45,41 @@ const Register = () => {
                     console.log("Error while Fetching the Register Response", error)
                 })
         } catch (error) {
-<<<<<<< HEAD
             console.log("Problem in Register try block", error)
         }
-=======
-            console.log("Problem in Register try block",error)
-        }finally{
-        setloading(false)
-    }
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
     }
 
-   
+    /* useEffect(()=>{
+        showhide();
+    },[]) */
+    /* const showhide =()=>{
+
+
+
+        const password = document.getElementById('password');
+        console.log('Password field clicked!');
+        
+       
+             
+            if(password.type == 'password'){
+              password.type = 'text';
+            }
+            else{
+              password.type = 'password'
+            }
+          }
+           */
+        
+        
+        
+        
+          
+          
+          
+         
+          
+          
+
     return (
         <>
             <div className='main'>
@@ -100,7 +112,7 @@ const Register = () => {
                         <div className="acc">
                             <Link to={'/login'}>Already have an account?</Link>
                         </div>
-                        <button onClick={handleRegister}>Create account{loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
+                        <button onClick={handleRegister}>Create account</button>
                     </div>
                 </form>
             </div>

@@ -2,13 +2,8 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-<<<<<<< HEAD
 import { Apidata, burl } from './Apihandler/Apihandler'
 import { SpinnerInfinity } from 'spinners-react'
-=======
-import { Apidata, burl } from './Apihandler/Apihandler';
-import { SpinnerRoundFilled } from "spinners-react";
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
 const Login = () => {
 
 
@@ -57,11 +52,7 @@ const Login = () => {
     } */
    /*  console.log(' data from login',api) */
    const handle = async (event) => {
-<<<<<<< HEAD
     setloading(true)
-=======
-       setloading(true)
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
     event.preventDefault();
 
     try {
@@ -93,8 +84,6 @@ const Login = () => {
         }
     } catch (error) {
         console.log("Problem in Register try block", error);
-    }finally{
-        setloading(false)
     }
     finally{
         setloading(false)
@@ -131,11 +120,7 @@ const Login = () => {
                         <div className="acc">
                             <Link to={'/'}>Create a new account?</Link>
                         </div>
-<<<<<<< HEAD
                         <button onClick={handle}>Login {loading && <SpinnerInfinity size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(255,255,255)"} />}</button>
-=======
-                        <button onClick={handle}>Login{loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
->>>>>>> f7d231a2b78f3856397469abb16ce798b91e63d6
                     </div>
                 </form>
             </div>
