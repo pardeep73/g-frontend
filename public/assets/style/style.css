@@ -101,7 +101,7 @@ section{
     background-color: rgb(246, 246, 246);
 }
 
-input,h2,form button{
+.inputs input,h2,form button,.password{
     animation-name: popup;
     animation-duration: 0.8s;
 
@@ -139,6 +139,10 @@ input,h2,form button{
     background-size: contain;
     display: none;
 }
+
+
+
+
 
 main {
     padding:0px 60px;
@@ -250,6 +254,7 @@ nav{
         flex-direction: column;
         border: 1px solid grey;
         border-radius: 10px;
+        background-color: #ddd;
     }
 
     .inputs{
@@ -275,7 +280,7 @@ nav{
 
     .register h2{
         font-size: clamp(30px,4vw,60px);
-        color: white;
+        color: rgb(0, 0, 0);
     }
 
     .register button{
@@ -294,9 +299,41 @@ nav{
     }
     .acc a{
         text-decoration: none;
-        color: white;
+        color: rgb(0, 0, 0);
         margin-bottom: 8px;
         font-size: clamp(16px,1.3vw,25px);
+    }
+    .contain button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #password
+    {
+        margin: 0px;
+        padding: 0px;
+        animation: normal;
+    }
+
+    .password{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        background-color: white; padding: 10px 15px ;
+        margin: 8px 0px;
+        border-radius: 10px;
+    }
+    
+    .show{
+        height: 40px;
+        width: 40px;
+        background-image: url(../images/svg/eye.svg);
+        background-position: center;
+        background-size: contain;
+       
+        
     }
 
 

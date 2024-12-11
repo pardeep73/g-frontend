@@ -3,12 +3,13 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Apidata, burl } from './Apihandler/Apihandler'
+import { SpinnerInfinity } from 'spinners-react'
 const Login = () => {
 
 
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
-
+    const [loading, setloading] = useState()
 
     const[api,setapi]=useState('')
     const navigate = useNavigate();
@@ -51,6 +52,7 @@ const Login = () => {
     } */
    /*  console.log(' data from login',api) */
    const handle = async (event) => {
+    setloading(true)
     event.preventDefault();
 
     try {
@@ -83,11 +85,17 @@ const Login = () => {
     } catch (error) {
         console.log("Problem in Register try block", error);
     }
+    finally{
+        setloading(false)
+    }
 };
 
 
     return (
         <>
+        
+            
+       
             <div className='main'>
                 <form className='register'>
                     <div className="contain">
@@ -100,15 +108,19 @@ const Login = () => {
                                 setemail(event.target.value)
 
                             }} value={email} />
-                            <input type="text" placeholder='Password' onChange={(event) => {
+                           <div className="password">
+                                <input type="password" placeholder='Password' id='password' onChange={(event) => {
 
-                                setpassword(event.target.value)
-                            }} value={password} />
+                                    setpassword(event.target.value)
+                                }} value={password} />
+
+                                <div className="show" id='show'></div>
+                            </div>
                         </div>
                         <div className="acc">
                             <Link to={'/'}>Create a new account?</Link>
                         </div>
-                        <button onClick={handle}>Login</button>
+                        <button onClick={handle}>Login {loading && <SpinnerInfinity size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(255,255,255)"} />}</button>
                     </div>
                 </form>
             </div>

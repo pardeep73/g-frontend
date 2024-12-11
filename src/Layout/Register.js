@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Apidata, burl } from './Apihandler/Apihandler'
+import { showhide } from '../javascript/navcontent'
 
 
 const Register = () => {
@@ -11,7 +12,7 @@ const Register = () => {
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
 
-    const[api,setapi]=useState('')
+    const [api, setapi] = useState('')
 
 
     const data = {
@@ -20,34 +21,33 @@ const Register = () => {
         password
     }
 
-    const handleRegister = async(event) =>{
+    const handleRegister = async (event) => {
         event.preventDefault();
 
         try {
 
-            if(!username || !email || !password){
+            if (!username || !email || !password) {
                 alert('Please Fill the All Fields');
             }
 
-            await axios.post(`${burl}/api/user/register`,data)
-            .then((res)=>{
-                console.log("Register Response data",res.data)
-                setapi(res.data)
-                alert(res.data.message)
-                if(res.data.success ===true){
-                setTimeout(() => {
-                    navigate('/login')
-                }, 2000);
-            }
-            })
-            .catch((error)=>{
-                console.log("Error while Fetching the Register Response",error)
-            })
+            await axios.post(`${burl}/api/user/register`, data)
+                .then((res) => {
+                    console.log("Register Response data", res.data)
+                    setapi(res.data)
+                    alert(res.data.message)
+                    if (res.data.success === true) {
+                        setTimeout(() => {
+                            navigate('/login')
+                        }, 2000);
+                    }
+                })
+                .catch((error) => {
+                    console.log("Error while Fetching the Register Response", error)
+                })
         } catch (error) {
-            console.log("Problem in Register try block",error)
+            console.log("Problem in Register try block", error)
         }
     }
-
 
    
     return (
@@ -66,10 +66,18 @@ const Register = () => {
                                 setemail(event.target.value)
 
                             }} value={email} />
-                            <input type="text" placeholder='Password' onChange={(event) => {
+                            <div className="password">
+                                <input type="password" placeholder='Password' id='password' onChange={(event) => {
 
-                                setpassword(event.target.value)
-                            }} value={password} />
+                                    setpassword(event.target.value)
+                                }} value={password} />
+
+                                <div className="show" id='show'></div>
+                            </div>
+
+
+
+
                         </div>
                         <div className="acc">
                             <Link to={'/login'}>Already have an account?</Link>
