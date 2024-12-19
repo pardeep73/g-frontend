@@ -62,7 +62,7 @@ export default function Index({ setend }) {
         setChatbot("");
 
         try {
-            const response = await fetch(`${burl}/api/bot/chatbot`, {
+            const response = await fetch(`/api/bot/chatbot`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(querydata),
@@ -122,7 +122,7 @@ export default function Index({ setend }) {
 
     const logout = async () => {
         try {
-            const response = await fetch(`${burl}/api/user/logout`, {
+            const response = await fetch(`/api/user/logout`, {
                 method: 'POST',
                 credentials: 'include', // Ensures cookies are sent
                 headers: {

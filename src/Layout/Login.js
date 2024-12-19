@@ -61,7 +61,7 @@ const Login = () => {
             return;
         }
 
-        const response = await fetch(`${burl}/api/user/login`, {
+        const response = await fetch(`/api/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
