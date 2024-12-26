@@ -3,6 +3,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Apidata, burl } from './Apihandler/Apihandler'
 import { showhide } from '../javascript/navcontent'
+import { SpinnerRoundFilled } from 'spinners-react'
+import { toast, ToastContainer } from 'react-toastify'
 
 
 const Register = () => {
@@ -11,6 +13,7 @@ const Register = () => {
     const [username, setusername] = useState('')
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const [loading, setloading] = useState(false);
 
     const [api, setapi] = useState('')
 
@@ -23,52 +26,35 @@ const Register = () => {
 
     const handleRegister = async (event) => {
         event.preventDefault();
+        setloading(true)
 
         try {
 
             if (!username || !email || !password) {
-                alert('Please Fill the All Fields');
+                toast.warn('Please Fill the All Fields');
             }
 
-            await axios.post(`/api/user/register`, data)
+            await axios.post(`${burl}/api/user/register`, data)
                 .then((res) => {
                     console.log("Register Response data", res.data)
                     setapi(res.data)
-                    alert(res.data.message)
+                    toast.success(res.data.message)
                     if (res.data.success === true) {
                         setTimeout(() => {
                             navigate('/login')
+                            setloading(false);
                         }, 2000);
                     }
                 })
                 .catch((error) => {
-                    console.log("Error while Fetching the Register Response", error)
+                    console.log("Error while Fetching the Register Response", error);
+                    setloading(false);
                 })
         } catch (error) {
-            console.log("Problem in Register try block", error)
+            console.log("Problem in Register try block", error);
+            setloading(false);
         }
     }
-
-    /* useEffect(()=>{
-        showhide();
-    },[]) */
-    /* const showhide =()=>{
-
-
-
-        const password = document.getElementById('password');
-        console.log('Password field clicked!');
-        
-       
-             
-            if(password.type == 'password'){
-              password.type = 'text';
-            }
-            else{
-              password.type = 'password'
-            }
-          }
-           */
         
         
         
@@ -85,7 +71,6 @@ const Register = () => {
             <div className='main'>
                 <form action="" className='register'>
                     <div className="contain">
-
                         <h2>CHAT BOT</h2>
                         <div className="inputs">
                             <input type="text" placeholder='Username' onChange={(event) => {
@@ -112,10 +97,11 @@ const Register = () => {
                         <div className="acc">
                             <Link to={'/login'}>Already have an account?</Link>
                         </div>
-                        <button onClick={handleRegister}>Create account</button>
+                        <button onClick={handleRegister}>Create account{loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
                     </div>
                 </form>
             </div>
+            <ToastContainer/>
         </>
     )
 }

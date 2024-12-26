@@ -32,10 +32,10 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-        <Route path='/' element={<UserMaster/>}>
+        
           <Route path='/' element={<Register/>}/>
           <Route path='/login' element={<Login/>}/>
-        </Route>
+
 
           <Route path='/home' element={<Master chatend={{ getprop, setid }} />}>
             <Route path='/home' element={<Index setend={{ sendprop, id }} />} />

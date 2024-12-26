@@ -3,10 +3,10 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Apidata, burl } from './Apihandler/Apihandler'
-import { SpinnerInfinity } from 'spinners-react'
+import { SpinnerInfinity, SpinnerRoundFilled } from 'spinners-react'
+import { Toastify } from 'toastify'
+import { toast, ToastContainer } from 'react-toastify'
 const Login = () => {
-
-
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     const [loading, setloading] = useState()
@@ -18,50 +18,18 @@ const Login = () => {
         email,
         password
     }
-
-    /* const handle = async(event) =>{
-        event.preventDefault();
-
-        try {
-
-            if(!email || !password){
-                alert('Please Fill the All Fields');
-            }
-
-            await axios.post(`${burl}/api/user/login`,data,
-                {
-                    withCredentials: true,
-                }
-            )
-            .then((res)=>{
-                console.log("Register Response data",res.data)
-                setapi(res.data)
-                alert(res.data.message)
-                if(res.data.success === true){
-                setTimeout(() => {
-                    navigate('/home')
-                }, 2000);
-            }
-            })
-            .catch((error)=>{
-                console.log("Error while Fetching the Register Response",error)
-            })
-        } catch (error) {
-            console.log("Problem in Register try block",error)
-        }
-    } */
-   /*  console.log(' data from login',api) */
    const handle = async (event) => {
     setloading(true)
     event.preventDefault();
 
     try {
         if (!email || !password) {
-            alert('Please Fill the All Fields');
+            toast.warn('Please Fill the All Fields');
+            setloading(false)
             return;
         }
 
-        const response = await fetch(`/api/user/login`, {
+        const response = await fetch(`${burl}/api/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -75,29 +43,24 @@ const Login = () => {
         console.log("Register Response data", resData);
 
         setapi(resData);
-        alert(resData.message);
+        toast.success(resData.message);
 
         if (resData.success === true) {
             setTimeout(() => {
                 navigate('/home');
+                setloading(false)
             }, 2000);
         }
     } catch (error) {
         console.log("Problem in Register try block", error);
-    }
-    finally{
         setloading(false)
     }
+    
 };
-
-
     return (
         <>
-        
-            
-       
             <div className='main'>
-                <form className='register'>
+                <form className='register' >
                     <div className="contain">
 
                         <h2>CHAT BOT</h2>
@@ -120,11 +83,13 @@ const Login = () => {
                         <div className="acc">
                             <Link to={'/'}>Create a new account?</Link>
                         </div>
-                        <button onClick={handle}>Login {loading && <SpinnerInfinity size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(255,255,255)"} />}</button>
+                        <button onClick={handle}>Login {loading && <SpinnerRoundFilled size={50} thickness={100} speed={100} color={'silver'} secondarycolor={"rgba(0, 0, 0, 0.44)"} />}</button>
                     </div>
                 </form>
             </div>
+            <ToastContainer/>
         </>
+        
     )
 }
 

@@ -12,6 +12,7 @@
     "react-markdown": "^9.0.1",
     "react-router-dom": "^7.0.2",
     "react-scripts": "5.0.1",
+    "react-toastify": "^11.0.2",
     "spinners-react": "^1.0.10",
     "toastify": "^2.0.1",
     "web-vitals": "^2.1.4"
@@ -21,7 +22,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "proxy":"https://backend-t9x8.onrender.com"
+    "proxy": "https://localhost:8000"
   },
   "eslintConfig": {
     "extends": [
