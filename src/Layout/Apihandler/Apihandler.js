@@ -1,3 +1,3 @@
-export const burl = 'https://g-backend-zkv0.onrender.com';
+export const burl = 'https://backend-81vx.onrender.com';
     
 
