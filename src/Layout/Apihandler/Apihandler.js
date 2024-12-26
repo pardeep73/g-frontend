@@ -1,3 +1,3 @@
-export const burl = 'http://localhost:8000';
+export const burl = 'https://g-backend-zkv0.onrender.com';
     
 
