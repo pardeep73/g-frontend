@@ -90,13 +90,8 @@ export default function Index({ setend }) {
                 };
 
                 const data = decoder.decode(value);
-                console.log('this is the data', data)
-
-                for (let index = 0; index < data.length; index++) {
-                    setTimeout(() => {
-                        setChatbot((prev) => prev + data[index]);
-                    }, 2 * index);
-                }
+                console.log('this is the data', data);
+                setChatbot((prev) => prev + data);  
             }
 
         } catch (err) {
