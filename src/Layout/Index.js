@@ -8,6 +8,7 @@ import { navcontent } from "../javascript/navcontent";
 import { burl } from "./Apihandler/Apihandler";
 
 export default function Index({ setend }) {
+    
 
     const navigate = useNavigate();
     const [bot, setBot] = useState(""); 
