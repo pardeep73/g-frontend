@@ -112,7 +112,7 @@ export default function Index({ setend }) {
     }, [chatend])
 
     useEffect(() => {
-        if (!(setend.id === ""))
+        if (!(setend.id === "") && data)
 
             data.forEach(element => {
                 if (setend.id === element._id) {
