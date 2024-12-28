@@ -94,7 +94,7 @@ export default function Index({ setend }) {
 
                /*  for (let index = 0; index < data.length; index++) { */
                     /* setTimeout(() => { */
-                        setChatbot((prev) => prev + data);
+                setChatbot((prev) => prev + data);
                    /*  }, 2 * index); */
               /*   } */
             }
