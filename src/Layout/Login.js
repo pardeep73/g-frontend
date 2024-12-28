@@ -41,23 +41,20 @@ const Login = () => {
         const resData = await response.json();
 
         console.log("Register Response data", resData);
-
-        if(resData.success === true){
-            toast.error(resData.message);
-            setloading(false)
-            return;
-        }
-        else{
-            setloading(false)
-            toast.warn(resData.message);
-        }
-
+        
         if (resData.success === true) {
+            toast.success(resData.message);
             setTimeout(() => {
                 navigate('/home');
                 setloading(false)
             }, 2000);
         }
+        else{
+            setloading(false)
+            toast.error(resData.message);
+        }
+
+
     } catch (error) {
         console.log("Problem in Register try block", error);
         setloading(false)

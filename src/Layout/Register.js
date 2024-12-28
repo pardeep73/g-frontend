@@ -46,7 +46,7 @@ const Register = () => {
                         }, 2000);
                     }
                     else {
-                        toast.warn(res.data.message)
+                        toast.error(res.data.message)
                         setloading(false);
                     }
                 })
