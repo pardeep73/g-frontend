@@ -37,13 +37,17 @@ const Register = () => {
             await axios.post(`${burl}/api/user/register`, data)
                 .then((res) => {
                     console.log("Register Response data", res.data)
-                    setapi(res.data)
-                    toast.success(res.data.message)
                     if (res.data.success === true) {
+                        setapi(res.data)
+                        toast.success(res.data.message)
                         setTimeout(() => {
                             navigate('/login')
                             setloading(false);
                         }, 2000);
+                    }
+                    else {
+                        toast.warn(res.data.message)
+                        setloading(false);
                     }
                 })
                 .catch((error) => {

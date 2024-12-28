@@ -42,8 +42,15 @@ const Login = () => {
 
         console.log("Register Response data", resData);
 
-        setapi(resData);
-        toast.success(resData.message);
+        if(resData.success === true){
+            toast.error(resData.message);
+            setloading(false)
+            return;
+        }
+        else{
+            setloading(false)
+            toast.warn(resData.message);
+        }
 
         if (resData.success === true) {
             setTimeout(() => {
