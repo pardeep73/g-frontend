@@ -51,7 +51,7 @@ body{
     flex-direction: column;
 }
 
-section{
+.section{
     min-height: 100vh;
     max-width: calc(100vw - 340px);
     background-color: rgb(0 0 0);
@@ -62,7 +62,7 @@ section{
     margin-left: 340px;
 }
 
-section{
+.section{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -408,7 +408,7 @@ header,.logout{
         padding: 10px 15px;
         margin: 5px;
     }
-    section{
+    .section{
         max-width: 100%;
         margin: 0px;
     }

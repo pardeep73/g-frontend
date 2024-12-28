@@ -127,7 +127,7 @@ export default function Index({ setend }) {
     return (
         <>
 
-            <section>
+            <div className="section">
                 <div className="container">
                     <main>
                         <div className="heading">
@@ -151,7 +151,7 @@ export default function Index({ setend }) {
                     </main>
 
                 </div>
-            </section>
+            </div>
         </>
     )
 }
