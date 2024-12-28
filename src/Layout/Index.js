@@ -51,7 +51,6 @@ export default function Index({ setend }) {
 
     const chat = async (e) => {
         e.preventDefault();
-        setBot("");
 
         setLoading(true); 
 
