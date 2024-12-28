@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { navcontent } from "../javascript/navcontent";
 import { burl } from "./Apihandler/Apihandler";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function Index({ setend }) {
     
@@ -99,7 +100,7 @@ export default function Index({ setend }) {
             }
 
         } catch (err) {
-            alert(err.message);
+            toast.error(err.message);
             console.error(err);
         } finally {
             setLoading(false);
@@ -152,6 +153,7 @@ export default function Index({ setend }) {
 
                 </div>
             </div>
+            <ToastContainer/>
         </>
     )
 }

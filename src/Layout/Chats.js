@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Apidata, Apiget, burl } from './Apihandler/Apihandler';
 import { useNavigate } from "react-router-dom";
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 const Chats = ({ chatend, setid }) => {
   const navigate = useNavigate();
   const [data, setdata] = useState([]);
@@ -55,7 +56,7 @@ const Chats = ({ chatend, setid }) => {
       const data = await response.json();
 
       if (data.success === true) {
-        alert(data.message);
+        toast.success(data.message);
         setTimeout(() => {
           navigate('/')
         }, 2000);
@@ -95,6 +96,7 @@ const Chats = ({ chatend, setid }) => {
 
 
       </nav>
+      <ToastContainer/>
     </>
   )
 
